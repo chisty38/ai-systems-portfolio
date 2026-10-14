@@ -1,0 +1,19 @@
+{
+  "description": "Hand-authored fictional dealership policies; fixture labels are not model-generated.",
+  "documents": [
+    "Vehicle warranty covers engine and transmission repairs for 12 months. Tires are excluded.",
+    "Vehicle warranty claims require a service receipt and the vehicle VIN.",
+    "Test drive appointments are available Monday through Friday from 9 am to 5 pm.",
+    "Delivery is available within 50 kilometres of the dealership. Delivery costs 100 dollars.",
+    "The dealership cafe serves coffee and sandwiches. Cafe opening hours are 8 am to 3 pm.",
+    "Service appointments can be booked by phone. Routine oil changes take approximately 45 minutes."
+  ],
+  "cases": [
+    {"question": "What does the vehicle warranty cover?", "ground_truth": "Engine and transmission repairs for 12 months, excluding tires.", "relevant_document_ids": [0]},
+    {"question": "What documents do vehicle warranty claims require?", "ground_truth": "A service receipt and vehicle VIN.", "relevant_document_ids": [1]},
+    {"question": "When can I schedule a test drive?", "ground_truth": "Monday through Friday, 9 am to 5 pm.", "relevant_document_ids": [2]},
+    {"question": "What is the delivery cost and delivery distance limit?", "ground_truth": "100 dollars, within 50 kilometres of the dealership.", "relevant_document_ids": [3]},
+    {"question": "What vehicle warranty repairs are covered and what is required for claims?", "ground_truth": "Engine and transmission repairs for 12 months, excluding tires; a service receipt and vehicle VIN are required.", "relevant_document_ids": [0, 1]},
+    {"question": "How much does battery replacement cost?", "ground_truth": "The provided documents do not state a battery replacement price.", "relevant_document_ids": []}
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "node": "v24.13.1",
+  "platform": "win32",
+  "cpu": "11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz",
+  "policy": "read-only access allowlist",
+  "sampleQuery": "SELECT id, vin, price, year FROM vehicles WHERE price < 50000 AND year >= 2022;",
+  "iterations": 5000,
+  "warmupIterations": 100,
+  "firstValidationMs": 9.5136,
+  "batchTotalMs": 776.0278,
+  "averageLatencyMs": 0.1552,
+  "operationsPerSecond": 6443,
+  "sampledMedianMs": 0.1271,
+  "sampledP95Ms": 0.2225,
+  "sampledMaxMs": 0.5129,
+  "note": "First validation excludes imports/construction. Warmed serial measurements exclude DB/API execution. No latency guarantee."
+}

@@ -1,0 +1,42 @@
+name: Offline checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  typescript:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        project: [sql-ast-guardrail, dual-agent-loop]
+    defaults:
+      run:
+        working-directory: ${{ matrix.project }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: ${{ matrix.project }}/package-lock.json
+      - run: npm ci
+      - run: npm test -- --runInBand
+      - run: npm run build
+      - if: matrix.project == 'sql-ast-guardrail'
+        run: npm run check:benchmark
+      - if: matrix.project == 'sql-ast-guardrail'
+        run: npm run benchmark
+  python:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: rag-eval-engine
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+          cache: pip
+          cache-dependency-path: rag-eval-engine/requirements.txt
+      - run: python -m pip install -r requirements.txt
+      - run: python -m unittest discover -s tests -v
+      - run: python eval_harness.py --offline --output reports/offline.json

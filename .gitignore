@@ -1,0 +1,26 @@
+# Dependency directories
+node_modules/
+venv/
+__pycache__/
+*.pyc
+
+# Build outputs
+dist/
+build/
+*.tmp
+
+# Environment and Secrets
+.env
+.env.local
+*.pem
+
+# Testing and Coverage
+coverage/
+reports/*.json
+!reports/.gitkeep
+
+# IDE and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

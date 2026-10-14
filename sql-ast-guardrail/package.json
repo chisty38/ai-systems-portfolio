@@ -1,0 +1,27 @@
+{
+  "name": "sql-ast-guardrail",
+  "version": "1.0.0",
+  "description": "AST-based T-SQL policy validation with adversarial regression tests",
+  "main": "dist/SecurityGuardrail.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --verbose",
+    "benchmark": "tsx scripts/benchmark.ts",
+    "check:benchmark": "tsc -p tsconfig.benchmark.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "node-sql-parser": "^5.4.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^26.6.5",
+    "jest": "^30.5.2",
+    "ts-jest": "^29.4.14",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "node": "v24.13.1",
+  "platform": "win32",
+  "cpu": "11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz",
+  "warmupPerQuery": 100,
+  "samplesPerQuery": 1000,
+  "note": "Local warmed-parser microbenchmark; excludes database execution and model calls. Not a latency guarantee.",
+  "results": [
+    {
+      "sql": "SELECT Id, Price FROM Vehicles WHERE Price > 15000;",
+      "allowed": true,
+      "medianMs": 0.094,
+      "p95Ms": 0.196,
+      "maxMs": 1.809
+    },
+    {
+      "sql": "SELECT v.Id FROM Vehicles v JOIN Dealerships d ON v.DealershipId = d.Id;",
+      "allowed": true,
+      "medianMs": 0.097,
+      "p95Ms": 0.187,
+      "maxMs": 1.056
+    },
+    {
+      "sql": "SELECT Id FROM Vehicles UNION SELECT Id FROM Users;",
+      "allowed": false,
+      "medianMs": 0.082,
+      "p95Ms": 0.126,
+      "maxMs": 0.467
+    },
+    {
+      "sql": "SELECT * INTO NewTable FROM Vehicles;",
+      "allowed": false,
+      "medianMs": 0.03,
+      "p95Ms": 0.038,
+      "maxMs": 0.164
+    },
+    {
+      "sql": "SELECT * FROM Vehicles; DROP TABLE Vehicles;",
+      "allowed": false,
+      "medianMs": 0.042,
+      "p95Ms": 0.076,
+      "maxMs": 0.299
+    }
+  ]
+}

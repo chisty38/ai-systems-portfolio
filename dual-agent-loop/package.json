@@ -1,0 +1,27 @@
+{
+  "name": "dual-agent-loop",
+  "version": "1.0.0",
+  "description": "Generator-reviewer workflow with validation, retries, and best-draft selection",
+  "main": "dist/DualAgentPipeline.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsx src/index.ts",
+    "test": "jest --verbose"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "@google/genai": "^2.29.1",
+    "dotenv": "^18.0.7"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^26.6.5",
+    "jest": "^30.5.2",
+    "ts-jest": "^29.4.14",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3"
+  }
+}
